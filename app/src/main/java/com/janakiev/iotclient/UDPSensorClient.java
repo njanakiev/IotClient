@@ -1,4 +1,4 @@
-package com.nikolaijanakiev.iotclient;
+package com.janakiev.iotclient;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.SocketException;
 
 /**
  * Created by Nikolai on 04.06.2015.

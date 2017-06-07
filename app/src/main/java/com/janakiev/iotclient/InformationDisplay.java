@@ -1,4 +1,4 @@
-package com.nikolaijanakiev.iotclient;
+package com.janakiev.iotclient;
 
 import android.widget.TextView;
 
