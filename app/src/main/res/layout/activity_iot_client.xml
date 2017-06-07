@@ -1,0 +1,181 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".IotClientActivity">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_apply"
+        android:id="@+id/buttonApply"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onButtonApply" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_send"
+        android:id="@+id/buttonSend"
+        android:layout_below="@+id/buttonApply"
+        android:layout_alignRight="@+id/buttonApply"
+        android:layout_alignEnd="@+id/buttonApply"
+        android:onClick="onButtonSend" />
+
+    <EditText
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editIpAddress"
+        android:layout_above="@+id/buttonSend"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_alignBottom="@+id/buttonSend"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/buttonSend"
+        android:layout_toStartOf="@+id/buttonSend" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editPort"
+        android:layout_alignTop="@+id/editIpAddress"
+        android:layout_toRightOf="@+id/editIpAddress"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbx_accelerometer"
+        android:id="@+id/cbxAccelerometer"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onCheckBoxClicked" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbx_gyroscope"
+        android:id="@+id/cbxGyroscope"
+        android:layout_below="@+id/cbxAccelerometer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onCheckBoxClicked" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbx_magnetic_field"
+        android:id="@+id/cbxMagneticField"
+        android:layout_below="@+id/cbxGyroscope"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onCheckBoxClicked" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/cbxAccelerometer"
+        android:layout_alignLeft="@+id/buttonSend"
+        android:layout_alignStart="@+id/buttonSend"
+        android:checkedButton="@+id/rbnJSON"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rbn_json"
+            android:id="@+id/rbnJSON"
+            android:onClick="onRadioButtonClicked" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rbn_csv"
+            android:id="@+id/rbnCSV"
+            android:layout_below="@+id/rbnJSON"
+            android:layout_alignLeft="@+id/rbnJSON"
+            android:layout_alignStart="@+id/rbnJSON"
+            android:onClick="onRadioButtonClicked" />
+    </RadioGroup>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollViewInformation"
+        android:layout_below="@+id/cbxMagneticField"
+        android:layout_toLeftOf="@id/buttonSend"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="@string/txt_information"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/txtInformation" />
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollViSpeedRadioGroup"
+        android:layout_alignTop="@+id/scrollViewInformation"
+        android:layout_alignLeft="@+id/buttonSend"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:checkedButton="@+id/rbnSpeedNormal"
+        >
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:checkedButton="@+id/rbnSpeedNormal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rbn_speed_fastest"
+            android:id="@+id/rbnSpeedFastest"
+            android:layout_gravity="left"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rbn_speed_game"
+            android:id="@+id/rbnSpeedGame"
+            android:layout_gravity="left"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rbn_speed_ui"
+            android:id="@+id/rbnSpeedUi"
+            android:layout_gravity="left"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rbn_speed_normal"
+            android:id="@+id/rbnSpeedNormal"
+            android:layout_gravity="left"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+</ScrollView>
+
+
+    </RelativeLayout>
